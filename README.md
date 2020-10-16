@@ -34,7 +34,7 @@ If you need to create some logic or actions to take on a route it's good to gath
 
 ### Context-like source of true
 
-The interesting part of this pattern is that the custom hook returns same data no matter if it's called by top component or the one that resides t very low end of components tree. It makes the url a context-like source of information for our application.
+The interesting part of this pattern is that the custom hook returns same data no matter if it's called by top component or the one that resides at very low end of components tree. It makes the url a context-like source of information for our application.
 
 ### Pitfall
 
@@ -46,9 +46,9 @@ So even if a browser currently has a `/pokemon/2` url and the `usePokemonDetails
 
 __Note__: For this codebase purpose _integration test_ means all tests that renders React component.
 
-For testing components that use any of `react-router` functions you have to provide a `history` object. I've provided `renderWithRouter` helper to render components within history context. It returns all the `render` objects as well as `history` object.
+For testing components that use any of `react-router` functions you have to provide a `history` object. I've provided `renderWithRouter` helper to render components within mocked history context. It returns all the `render` objects as well as `history` object.
 
-Thanks to that `renderWithRouter(<Component />, ['/custom-url'])` is rendering a `<Component />` as it was called by a browser on a `/custom-url` url.
+Thanks to that `renderWithRouter(<Component />, ['/custom-url'])` is rendering a `<Component />` as it was called by a browser with `/custom-url` url.
 
 To check if some actions changed existing url address you have to check length of `history.entries` array as well as `history.location.pathname` value.
 
